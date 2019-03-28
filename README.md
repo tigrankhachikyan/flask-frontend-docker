@@ -1,4 +1,4 @@
-# Flask Frontend Docker - project generator
+# Strapi + Nuxtjs - JAMStack project generator
 
 [![Build Status](https://travis-ci.org/tigrankhachikyan/swarm-strapi-nuxt-stack.svg?branch=master)](https://travis-ci.org/tigrankhachikyan/swarm-strapi-nuxt-stack)
 
