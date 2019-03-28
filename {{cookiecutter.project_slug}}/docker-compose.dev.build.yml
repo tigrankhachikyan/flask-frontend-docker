@@ -1,7 +1,10 @@
 version: '3.3'
 services:
   backend:
-    build: ./backend
+    build:
+      context: ./backend
+      args: 
+        node_env: development
   frontend:
     build: 
       context: ./frontend

@@ -28,7 +28,11 @@ then
 fi
 
 cd $APP_NAME
-strapi start &
+if [ $NODE_ENV == "production" ]; then 
+  pm2 start server.js
+else 
+  strapi start &
+fi
 
 strapiPID=$!
 wait "$strapiPID"
