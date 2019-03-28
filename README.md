@@ -1,8 +1,8 @@
 # Flask Frontend Docker - project generator
 
-[![Build Status](https://travis-ci.org/tiangolo/flask-frontend-docker.svg?branch=master)](https://travis-ci.org/tiangolo/flask-frontend-docker)
+[![Build Status](https://travis-ci.org/tigrankhachikyan/swarm-strapi-nuxt-stack.svg?branch=master)](https://travis-ci.org/tigrankhachikyan/swarm-strapi-nuxt-stack)
 
-Generate stack with a a Flask backend and a modern (Vue.js, React, Angular) frontend.
+Generate stack with a a Strapi backend and a modern (Vue.js, React, Angular) frontend.
 
 Each in its own container, with routes handled by a Traefik proxy.
 
@@ -14,9 +14,8 @@ With automatic HTTPS certificate generation using Let's Encrypt.
 * Full Docker integration (Docker based)
 * Docker Swarm Mode deployment
 * Docker Compose integration and optimization for local development
-* Production ready Python web server using Nginx and uWSGI
-* Python Flask backend:
-    * CORS already configured, to be used by the frontend.
+* Strapi backend:
+    * CORS already configured, to be used by the frontend. [TODO: check]
 * Vue frontend
     * Easily updated to be Angular or React.
     * Docker server based on Nginx (configured to play nicely with Vue-router)
@@ -33,7 +32,7 @@ Go to the directoy where you want to create your project and run:
 
 ```bash
 pip install cookiecutter
-cookiecutter https://github.com/tiangolo/flask-frontend-docker
+cookiecutter https://github.com/tigrankhachikyan/swarm-strapi-nuxt-stack
 ```
 
 ### Input variables
@@ -70,23 +69,11 @@ If you are building a backend that would be used by a modern frontend (like in t
 
 This project generator has several bigger (more complete) sibling project generators that you might want to check and use.
 
-### FastAPI
+### Strapi
+[TODO]
+### Nuxt
 
-If you are building a backend to be used as an API and a modern frontend that communicates with it (as in this project), you might benefit from using [**FastAPI**](https://github.com/tiangolo/fastapi) instead of Flask, and a corresponding project generator, including a NoSQL database, security, authentication, asynchronous jobs, email notifications, etc:
-
-https://github.com/tiangolo/full-stack-fastapi-couchbase
-
-
-### Flask
-
-If for some reason you can't (or don't want to) use FastAPI and want to keep using Flask, there are also bigger sibling projects:
-
-https://github.com/tiangolo/full-stack
-
-https://github.com/tiangolo/full-stack-flask-couchbase
-
-https://github.com/tiangolo/full-stack-flask-couchdb
-
+[TODO]
 
 ## License
 
