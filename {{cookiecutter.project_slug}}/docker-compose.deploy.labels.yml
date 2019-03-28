@@ -29,7 +29,7 @@ services:
       labels:
         - traefik.frontend.rule=Host:api.${DOMAIN}
         - traefik.enable=true
-        - traefik.port=80
+        - traefik.port=1337
         - traefik.tags=${TRAEFIK_TAG}
   frontend:
     deploy:

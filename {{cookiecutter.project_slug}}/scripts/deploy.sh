@@ -13,6 +13,8 @@ docker-compose \
 -f docker-compose.deploy.images.yml \
 -f docker-compose.deploy.labels.yml \
 -f docker-compose.deploy.networks.yml \
+-f docker-compose.deploy.ports.yml \
+-f docker-compose.deploy.secrets.yml \
 -f docker-compose.deploy.volumes-placement.yml \
 config > docker-stack.yml
 
