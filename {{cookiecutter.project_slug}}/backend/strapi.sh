@@ -29,7 +29,7 @@ fi
 
 cd $APP_NAME
 if [ $NODE_ENV == "production" ]; then 
-  pm2 start server.js
+  npm start &
 else 
   strapi start &
 fi

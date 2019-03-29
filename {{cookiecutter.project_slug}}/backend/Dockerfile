@@ -4,8 +4,7 @@ ARG node_env=production
 WORKDIR /usr/src/api
 
 RUN echo "unsafe-perm = true" >> ~/.npmrc \
-    && npm install strapi@alpha -g \
-    && npm install -g pm2
+    && npm install strapi@alpha
 
 COPY . ./
 
