@@ -1,19 +1,18 @@
 FROM node:11.1.0-alpine
 ARG node_env=production
 
-WORKDIR /usr/src/api
+RUN echo "unsafe-perm = true" >> ~/.npmrc
+RUN npm install strapi@alpha -g
+RUN npm install pm2 -g
 
-RUN echo "unsafe-perm = true" >> ~/.npmrc \
-    && npm install strapi@alpha -g
-
-COPY . ./
+COPY . /usr/src/api/
 
 ENV NODE_ENV=$node_env
-RUN chmod +x ./strapi.sh
+RUN chmod +x /usr/src/api/strapi.sh \
+    && /usr/src/api/strapi.sh
+
+WORKDIR /usr/src/api/strapi
+
+CMD ["npm", "start"]
 
 EXPOSE 1337
-
-HEALTHCHECK --interval=15s --timeout=5s --start-period=30s \
-      CMD node /usr/src/api/healthcheck.js
-
-CMD ["./strapi.sh"]

@@ -1,14 +1,6 @@
 #!/bin/sh
 set -ea
 
-_stopStrapi() {
-  echo "Stopping strapi"
-  kill -SIGINT "$strapiPID"
-  wait "$strapiPID"
-}
-
-trap _stopStrapi SIGTERM SIGINT
-
 cd /usr/src/api
 
 APP_NAME=${APP_NAME:-strapi}
@@ -26,13 +18,3 @@ elif [ ! -d "$APP_NAME/node_modules" ]
 then
     npm install --prefix ./$APP_NAME
 fi
-
-cd $APP_NAME
-if [ $NODE_ENV == "production" ]; then 
-  npm start &
-else 
-  strapi start &
-fi
-
-strapiPID=$!
-wait "$strapiPID"
