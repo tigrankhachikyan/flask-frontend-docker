@@ -1,5 +1,5 @@
 FROM node:11.1.0-alpine
-ARG node_env=prodcution
+ARG node_env=production
 
 LABEL maintainer="Luca Perret <perret.luca@gmail.com>" \
       org.label-schema.vendor="Strapi" \
@@ -14,17 +14,15 @@ ENV NODE_ENV=${node_env}
 
 WORKDIR /usr/src/api
 
-RUN echo "unsafe-perm = true" >> ~/.npmrc
-
-RUN npm install -g strapi@3.0.0-alpha.25.2
-RUN npm install -g pm2
+RUN echo "unsafe-perm = true" >> ~/.npmrc \
+    && npm install -g strapi@3.0.0-alpha.25.2 \
+    && npm install -g pm2
 
 COPY . ./
 RUN chmod +x ./strapi.sh
 
 EXPOSE 1337
 
-COPY healthcheck.js ./
 HEALTHCHECK --interval=15s --timeout=5s --start-period=30s \
       CMD node /usr/src/api/healthcheck.js
 
